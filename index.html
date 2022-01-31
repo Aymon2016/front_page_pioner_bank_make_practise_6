@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pioner-bank</title>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="login-panel" id="login-panel">
+        <h1 class="text-center">Welcome to my pioner-bank</h1>
+        <div class="submit-box">
+            <h4>login</h4>
+            <input type="text" name="" id="" placeholder="Email" class="form-control">
+            <br>
+            <input type="password" name="" id="" placeholder="password" class="form-control">
+            <br>
+            <button id="enterButton" class="btn btn-success">Enter</button>
+        </div>
+    </div>
+    <div id="transection-area">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="deposite status">
+                    <h2>deposite</h2>
+                    <h2>$ <span id="deposite-Curent-Blanced">00</span> </h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="widthrow status">
+                    <h2>widthrow</h2>
+                    <h2>$ <span id="widthrow-Curent-Blanced">00</span></h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blanced status">
+                    <h2>blanced</h2>
+                    <h2>$ <span id="direct-curent-blanced">100</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="deposite-box deposite-widthrow-box">
+                    <h4>deposite</h4>
+                    <input type="text" name="" id="deposite-new-blanced" placeholder="Deposite" class="form-control">
+                    <br>
+                    <button id="deposite-btn" class="btn btn-success">Deposite</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="widthrow-box deposite-widthrow-box">
+                    <h4>widthrow</h4>
+                    <input type="text" name="" id="widthrow-new-blanced" placeholder="$widthrow meney" class="form-control">
+                    <br>
+                    <button id="widthrow-btn" class="btn btn-success">Widthrow</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    // login button function
+
+ let enter=document.getElementById('enterButton');
+ enter.addEventListener('click', function(){
+
+     let loginPanel=document.getElementById('login-panel');
+     loginPanel.style.display="none";
+     let transectionArea=document.getElementById("transection-area");
+     transectionArea.style.display="block";
+ })
+
+//  deposite button function
+
+let depositebtn=document.getElementById('deposite-btn');
+    depositebtn.addEventListener('click', function () {
+    
+    let depositeNewBlance=document.getElementById('deposite-new-blanced').value;
+    let depositeNewBlanceNumbar=parseFloat(depositeNewBlance);
+
+    let depositeCurentBlance=document.getElementById('deposite-Curent-Blanced').innerText;
+    let depositeCurentBlanceNumbar=parseFloat(depositeCurentBlance);
+    
+    let totaldepositeCurentBlance=depositeNewBlanceNumbar + depositeCurentBlanceNumbar;
+    document.getElementById('deposite-Curent-Blanced').innerText=totaldepositeCurentBlance;
+
+
+    let directCurentBlance=document.getElementById('direct-curent-blanced').innerText;
+    let directCurentBlanceNumbar=parseFloat(directCurentBlance);
+    
+    let totaldirectCurentBlance=depositeNewBlanceNumbar + directCurentBlanceNumbar;
+    document.getElementById('direct-curent-blanced').innerText=totaldirectCurentBlance;
+
+
+    document.getElementById('deposite-new-blanced').value="";
+
+    })
+
+ 
+
+
+
+
+    let widthrowbtn=document.getElementById('widthrow-btn');
+    widthrowbtn.addEventListener('click', function () {
+     
+    let widthrowNewBlance=document.getElementById('widthrow-new-blanced').value;
+    widthrowNewBlanceNumbar=parseFloat(widthrowNewBlance);
+
+    let widthrowCurentBlance=document.getElementById('widthrow-Curent-Blanced').innerText;
+   let widthrowCurentBlanceNumbar=parseFloat(widthrowCurentBlance);
+    
+    let totalwidthrowCurentBlance=widthrowNewBlanceNumbar + widthrowCurentBlanceNumbar;
+   document.getElementById('widthrow-Curent-Blanced').innerText=totalwidthrowCurentBlance;
+
+   let directCurentBlance=document.getElementById('direct-curent-blanced').innerText;
+   let directCurentBlanceNumbar=parseFloat(directCurentBlance);
+   
+    
+    let totaldirectCurentBlance=directCurentBlanceNumbar - widthrowNewBlanceNumbar;
+    document.getElementById('direct-curent-blanced').innerText=totaldirectCurentBlance;
+
+
+    document.getElementById('widthrow-new-blanced').value="";
+
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // // login click button work
+    //  var login=document.getElementById('EnterButtonb');
+    //  login.addEventListener('click' , function(){
+    //      var clickRemove= document.getElementById('login-panel');
+    //      clickRemove.style.display='none';
+    //      var clickCreate = document.getElementById('transection-area');
+    //      clickCreate.style.display='block';
+    //  })
+    //     // deposite btn click
+
+    //     var depostieBtn =document.getElementById('deposite-btn');
+    //     depostieBtn.addEventListener('click', function(){
+    //         var depositeAmount=document.getElementById('deposite-amount').value;
+    //        var depositeNumber=parseFloat(depositeAmount);
+           
+    //     //    var depositeCurentValue=document.getElementById('depositeCurent').innerText;
+    //     //    var deposteCurentValueNumber=parseFloat(depositeCurentValue);
+
+    //     //    var totalDeposite=depositeNumber +deposteCurentValueNumber;
+    //     //    document.getElementById('depositeCurent').innerText =totalDeposite;
+
+          
+
+    //     //    var depositeCurentValue=document.getElementById('blanced-curent').innerText;
+    //     //    var deposteCurentValueNumber=parseFloat(depositeCurentValue);
+
+    //     //    var totalDeposite=depositeNumber +deposteCurentValueNumber;
+    //     //    document.getElementById('blanced-curent').innerText =totalDeposite;
+    //     updateText('depositeCurent',depositeNumber);
+    //     updateText('blanced-curent',depositeNumber);
+
+    //        document.getElementById('deposite-amount').value='';
+    //     })
+    
+
+
+    
+    
+
+    //     function updateText(id,depositeNumber){
+    //         var depositeCurentValue=document.getElementById(id).innerText;
+    //        var deposteCurentValueNumber=parseFloat(depositeCurentValue);
+
+    //        var totalDeposite=depositeNumber +deposteCurentValueNumber;
+    //        document.getElementById(id).innerText =totalDeposite;   
+    //     }
+
+
+       
+        
+
+       
+</script>
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

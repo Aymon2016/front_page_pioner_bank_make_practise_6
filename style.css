@@ -1,0 +1,32 @@
+body{
+    padding: 100px;
+}
+.submit-box{
+    box-shadow: 5px 5px 10px gray;
+    padding: 50px;
+    margin-top: 50px;
+    border-radius: 20px;
+}
+#transection-area{
+    display: none;
+}
+.deposite{
+    background-color: lightcyan;
+}
+.widthrow{
+    background-color: lightpink;
+}
+.blanced{
+    background-color: lime;
+}
+.status{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+.deposite-widthrow-box{
+    box-shadow: 5px 5px 10px gray;
+    padding: 50px;
+    margin-top: 50px;
+    border-radius: 20px;
+}
